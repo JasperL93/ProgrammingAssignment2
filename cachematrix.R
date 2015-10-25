@@ -1,3 +1,5 @@
+## This is the code for Programming Assignment 2: lexical scoping
+
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 ## This is a list which combines the following:
 ## - set & get the value of the matrix
@@ -25,5 +27,14 @@ list(
 ## retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+	i <- x$getinverse()
+	if(!is.null(i)) {
+		message("getting cached data")
+		return(i)
+}
+
+	m <- x$get()
+	i <- solve(m, ...)
+	x$setinverse(i)
+	i
 }
